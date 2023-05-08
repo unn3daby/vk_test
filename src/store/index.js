@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reducer from '../slice/formSlice';
+import form from '../slice/formSlice';
 const store = configureStore({
-    reducer: {reducer},
+    reducer: {form},
     devTools: process.env.NODE_ENV !== 'production',
 })
 

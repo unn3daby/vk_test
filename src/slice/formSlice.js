@@ -1,26 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    tower: ['A', 'B'],
-    floor: {},
-    meetingRoom: {},
-    date: '',
+    tower: '',
+    floor: '',
+    meetingRoom: '',
+    date: null,
+    time: null,
     comment: '',
 }
 
 const formSlice = createSlice({
-    name: 'heroes',
+    name: 'form',
     initialState,
     reducers: {
-        getData: (state, action) => {
-            
+        updateForm: (state, action) => {
+            const { key, value } = action.payload;
+            state[key] = value;
         },
-        postData: (state, action) => {
-            
+
+        resetForm(state) {
+            return initialState;
         }
     }
-
 })
 const {actions, reducer} = formSlice;
 
 export default reducer;
+
+export const {updateForm, resetForm} = actions;
