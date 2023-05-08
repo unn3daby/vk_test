@@ -9,11 +9,12 @@ import { submitForm, updateField } from '../../actions/formActions';
 import './Form.scss';
 import createDateObject from '../../api/createDateObject';
 import store from '../../store';
+import { resetForm } from '../../slice/formSlice';
 
 
 
 const Form = () => {
-    
+
     const [dateAndTimestate, setDateAndTimestate] = useState({
         date: null,
         time: null
@@ -127,7 +128,7 @@ const Form = () => {
                     <Grid xs={12} md={12} sm={10} mt={2}>
                         <Stack direction={{ xs: 'column', md: 'row', sm: 'row' }} spacing={2} justifyContent={'space-evenly'} >
                             <Button type="submit" sx={{height: {md: '50px', xs: '50px'}}} variant="contained">Отправить</Button>
-                            <Button sx={{height: {md: '50px', xs: '50px'}}} color="error" variant="contained">Отчистить</Button>
+                            <Button onClick = {() => dispatch(resetForm())} sx={{height: {md: '50px', xs: '50px'}}} color="error" variant="contained">Отчистить</Button>
                         </Stack>
                     </Grid>
                 </Box>
